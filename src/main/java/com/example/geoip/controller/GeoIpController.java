@@ -22,12 +22,8 @@ public class GeoIpController {
     @GetMapping("/{ip}")
     public GeoIpResponseDto findByIp(@PathVariable String ip) {
         Long ipAsDecimal = ipToDecimalMapper.toDecimal(ip);
-        System.out.println("Ip as number: " + ipAsDecimal);
-        long start = System.nanoTime();
         GeoIp geoIp = geoIpService.findIp(ipAsDecimal);
         GeoIpResponseDto dto = geoIpMapper.toDto(geoIp, ip, ipAsDecimal);
-        long end = System.nanoTime();
-        System.out.println("Elapsed time to complete transaction: " + ((end - start) / 1_000_000) + "ms");
         return dto;
     }
 }
