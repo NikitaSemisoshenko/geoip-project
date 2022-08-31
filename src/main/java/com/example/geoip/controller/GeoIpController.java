@@ -1,7 +1,7 @@
 package com.example.geoip.controller;
 
 import com.example.geoip.mapper.GeoIpMapper;
-import com.example.geoip.mapper.IpToDecimalMapper;
+import com.example.geoip.util.IpToDecimalMapper;
 import com.example.geoip.model.GeoIp;
 import com.example.geoip.model.dto.GeoIpResponseDto;
 import com.example.geoip.service.GeoIpService;
@@ -23,7 +23,6 @@ public class GeoIpController {
     public GeoIpResponseDto findByIp(@PathVariable String ip) {
         Long ipAsDecimal = ipToDecimalMapper.toDecimal(ip);
         GeoIp geoIp = geoIpService.findIp(ipAsDecimal);
-        GeoIpResponseDto dto = geoIpMapper.toDto(geoIp, ip, ipAsDecimal);
-        return dto;
+        return geoIpMapper.toDto(geoIp, ip, ipAsDecimal);
     }
 }
