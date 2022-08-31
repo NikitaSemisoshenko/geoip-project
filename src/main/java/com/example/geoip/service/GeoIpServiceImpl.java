@@ -1,5 +1,6 @@
 package com.example.geoip.service;
 
+import java.util.Optional;
 import com.example.geoip.model.GeoIp;
 import com.example.geoip.repository.GeoIpRepository;
 import lombok.RequiredArgsConstructor;
@@ -12,6 +13,6 @@ public class GeoIpServiceImpl implements GeoIpService {
 
     @Override
     public GeoIp findIp(Long ipAsDecimal) {
-        return geoIpRepository.findGeoIp(ipAsDecimal);
+        return geoIpRepository.findGeoIpByStartIsLessThanEqualAndEndIsGreaterThanEqual(ipAsDecimal, ipAsDecimal);
     }
 }

@@ -1,5 +1,6 @@
 package com.example.geoip.mapper;
 
+import com.example.geoip.util.IpToDecimalMapper;
 import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Test;
 
@@ -16,5 +17,15 @@ class IpToDecimalMapperTest {
     @Test
     void toDecimal_incorrectValue_notOk() {
         assertThrows(RuntimeException.class, () -> ipToDecimalMapper.toDecimal("fasdf"));
+    }
+
+    @Test
+    void toDecimal_nullValue_notOk() {
+        assertThrows(RuntimeException.class, () -> ipToDecimalMapper.toDecimal(null));
+    }
+
+    @Test
+    void toDecimal_tooBigValue_notOk() {
+        assertThrows(RuntimeException.class, () -> ipToDecimalMapper.toDecimal("255.255.255.257"));
     }
 }
