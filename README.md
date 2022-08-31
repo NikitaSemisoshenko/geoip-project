@@ -42,7 +42,7 @@ Project based on a Spring Boot. Application consists of 3 layers:
 
 # How to test it out
 
-Go to the browser and type http://locahost:8080/geoip/<your-ip>. Instead of <your ip insert ip address. 
+Go to the browser and type http://locahost:8080/geoip/your-ip. Instead of your-ip insert ip address. 
 For example: http://locahost:8080/geoip/8.8.8.8
 
 
