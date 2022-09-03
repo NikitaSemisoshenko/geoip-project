@@ -11,9 +11,10 @@ public class IpToDecimalMapper {
 
     private static final Long MAXIMUM_DECIMAL_IP = getDecimal("255.255.255.255");
 
+    private static final String IP_PATTERN = "\\d+\\.\\d+\\.\\d+\\.\\d+";
+
     public Long toDecimal(String ip) {
-        String pattern = "\\d+\\.\\d+\\.\\d+\\.\\d+";
-        if (!Pattern.matches(pattern, ip) || ip == null) {
+        if (!Pattern.matches(IP_PATTERN, ip) || ip == null) {
             throw new RuntimeException("Incorrect ip");
         }
         Long sum = getDecimal(ip);

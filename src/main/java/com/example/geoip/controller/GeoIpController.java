@@ -1,10 +1,10 @@
 package com.example.geoip.controller;
 
 import com.example.geoip.mapper.GeoIpMapper;
-import com.example.geoip.util.IpToDecimalMapper;
 import com.example.geoip.model.GeoIp;
 import com.example.geoip.model.dto.GeoIpResponseDto;
 import com.example.geoip.service.GeoIpService;
+import com.example.geoip.util.IpToDecimalMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
